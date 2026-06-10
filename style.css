@@ -1,0 +1,197 @@
+/* Fonts */
+
+/* Montserrat */
+@font-face {
+    font-family: "Montserrat";
+    src: url(./assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf) format("truetype");
+    font-style: normal;
+    font-weight: 100 900;
+}
+@font-face {
+    font-family: "Montserrat";
+    src: url(./assets/fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf) format("truetype");
+    font-style: italic;
+    font-weight: 100 900;
+}
+
+/* Fraunces */
+@font-face {
+    font-family: "Fraunces";
+    src: url(./assets/fonts/Fraunces/Fraunces-VariableFont_SOFT\,WONK\,opsz\,wght.ttf) format("truetype");
+    font-style: normal;
+    font-weight: 100 900;
+}
+@font-face {
+    font-family: "Fraunces";
+    src: url(./assets/fonts/Fraunces/Fraunces-Italic-VariableFont_SOFT\,WONK\,opsz\,wght.ttf) format("truetype");
+    font-style: italic;
+    font-weight: 100 900;
+}
+
+
+/* Variables */
+:root{
+    --blue: #0259cc;
+    
+    --green-500: hsl(158, 36%, 37%);
+    --green-700: hsl(158, 42%, 18%);
+
+    /* Neutral */
+
+    --black: hsl(212, 21%, 14%);
+    --grey: hsl(228, 12%, 48%);
+    --cream: hsl(30, 38%, 92%);
+    --white: hsl(0, 0%, 100%);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+body{
+    position: relative;
+    max-width: 100vw;
+    height: 100vh;
+    color: var(--black);
+    background-color: var(--cream);
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: clamp(.85rem, 2vw, 1rem);
+}
+
+.mobile-img{
+    display: none;
+}
+
+.card{
+    background-color: var(--white);
+    border-radius: .7rem;
+    display: flex;
+    height: fit-content;
+    max-width: max(40rem, 40%);
+}
+.card img{
+    width: 50%;
+    border-radius: .7rem 0 0 .7rem;
+}
+.card .product-info{
+    width: 50%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.card .product-info .product-category{
+    text-transform: uppercase;
+    color: var(--grey);
+    letter-spacing: .4rem;
+    font-size: .7rem;
+}
+.card .product-info .product-name{
+    font-family: "Fraunces", serif;
+    font-weight: 700;
+    font-size: 2rem;
+    margin: 1rem 0;
+    line-height: 2rem;
+}
+.card .product-info .product-description{
+    color: var(--grey);
+    line-height: 1.5rem;
+}
+.card .product-info .product-price{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+.card .product-info .product-price .discount{
+    color: var(--green-500);
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: "Fraunces", serif;
+}
+.card .product-info .product-price .original{
+    text-decoration: line-through;
+    color: var(--grey);
+}
+.card .product-info .cart{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    background-color: var(--green-500);
+    color: var(--white);
+    border: none;
+    padding: 1rem 1.5rem;
+    border-radius: .5rem;
+    font-size: .9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .2s ease;
+}
+.card .product-info .cart:hover{
+    background-color: var(--green-700);
+}
+.card .product-info .cart img{
+    width: 1rem;
+}
+
+.attribution{
+    font-size: .8rem;
+    position: absolute;
+    left: 50%;
+    bottom: 1%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+.attribution a{
+    text-decoration: none;
+    color: var(--blue);
+}
+
+
+/* Responsiveness */
+@media screen and (max-width: 600px) {
+    .card{
+        flex-direction: column;
+        max-width: 90%;
+    }
+    .card img{
+        width: 100%;
+        border-radius: .7rem .7rem 0 0;
+    }
+    .card .product-info{
+        width: 100%;
+    }
+    .mobile-img{
+        display: block;
+    }
+    .desktop-img{
+        display: none;
+    }
+}
+
+@media (min-width: 1700px) and (max-width: 1900px) {
+    .card{
+        max-width: 35%;
+    }
+}
+@media (min-width: 1901px){
+    .card{
+        max-width: 30%;
+    }
+}
+@media (min-width: 2201px){
+    body{
+        font-size: 1.3rem;
+    }
+    .card .product-info .product-description{
+        line-height: 2rem;
+    }
+}
